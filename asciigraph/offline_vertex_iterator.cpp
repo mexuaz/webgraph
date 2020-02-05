@@ -112,7 +112,7 @@ void offline_vertex_iterator::copy( const offline_vertex_iterator& other ) {
 void offline_vertex_iterator::increment() {
    string tmp;
    
-   bool success = getline( back, tmp );
+   bool success = !getline( back, tmp ).bad();
    
    if( !success ) {
       end_marker = true;

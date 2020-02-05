@@ -54,9 +54,12 @@ private:
    int n;
 
    void init() {
-      if ( valid0 = it0->has_next() ) 
+      valid0 = it0->has_next();
+      if ( valid0 ) 
          curr0 = it0->next();
-      if ( valid1 = it1->has_next() ) 
+
+      valid1 = it1->has_next();
+      if ( valid1 ) 
          curr1 = it1->next();
    }
 
@@ -174,31 +177,37 @@ val_type merged_iterator<val_type>::next() {
    
    if ( !valid0 ) {
       current = curr1;
-      if ( valid1 = it1->has_next() ) 
+      valid1 = it1->has_next();
+      if ( valid1 ) 
          curr1 = it1->next();
       return current;
    } 
    if ( !valid1 ) {
       current = curr0;
-      if ( valid0 = it0->has_next() ) 
+      valid0 = it0->has_next();
+      if ( valid0 ) 
          curr0 = it0->next();
       return current;
    } 
    if ( curr0 < curr1 ) {
       current = curr0;
-      if ( valid0 = it0->has_next() ) 
+      valid0 = it0->has_next();
+      if ( valid0 ) 
          curr0 = it0->next();
    } 
    else if ( curr0 > curr1 ) {
       current = curr1;
-      if ( valid1 = it1->has_next() ) 
+      valid1 = it1->has_next();
+      if ( valid1 ) 
          curr1 = it1->next();
    } 
    else {
       current = curr0;
-      if ( valid0 = it0->has_next() ) 
+      valid0 = it0->has_next();
+      if ( valid0 ) 
          curr0 = it0->next();
-      if ( valid1 = it1->has_next() ) 
+      valid1 = it1->has_next();
+      if ( valid1 ) 
          curr1 = it1->next();
    }
    return current;

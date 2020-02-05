@@ -383,7 +383,7 @@ void ibitstream::set_position( unsigned long position ) {
       
    int pos = (int)this->pos;
 
-   if ( delta <= avail && delta >= - pos ) {
+   if ( delta <= static_cast<int>(avail) && delta >= - pos ) {
       // We can reposition just by moving into the buffer.
       avail -= delta;
       pos += delta;
