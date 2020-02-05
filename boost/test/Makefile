@@ -1,4 +1,4 @@
-include ../../../flags.mk
+include ../../flags.mk
 
 linklibs = -lboost_regex -lboost_filesystem -lboost_program_options -lwebgraph
 

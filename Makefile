@@ -27,7 +27,7 @@ libs:
 	$(MAKE) -C bitstreams all
 	$(MAKE) -C properties all
 	$(MAKE) -C webgraph all
-#	$(MAKE) -C log all
+	$(MAKE) -C log all
 	ar -r libwebgraph.a $(files)
 
 clean:
